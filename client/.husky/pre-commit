@@ -1,5 +1,0 @@
-#!/bin/sh
-
-npm run lint:ts --fix
-npm run format
-npm run check
