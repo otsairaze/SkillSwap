@@ -1,8 +1,39 @@
 generator client {
   provider = "prisma-client"
-  output   = "../generated/prisma"
+  output   = "./generated/prisma"
 }
 
 datasource db {
   provider = "postgresql"
+}
+
+model User {
+  id     Int         @id @default(autoincrement())
+  email  String      @unique
+  login  String      @unique
+  skills UserSkill[]
+}
+
+model Skill {
+  id    Int         @id @default(autoincrement())
+  name  String      @unique
+  users UserSkill[]
+}
+
+model UserSkill {
+  userId    Int
+  skillId   Int
+  level     SKillLevel
+  confirmed Boolean    @default(false)
+
+  user  User  @relation(fields: [userId], references: [id])
+  skill Skill @relation(fields: [skillId], references: [id])
+
+  @@id([userId, skillId])
+}
+
+enum SKillLevel {
+  BEGINNER
+  INTERMEDIATE
+  ADVANCED
 }
