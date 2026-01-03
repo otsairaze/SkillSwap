@@ -1,14 +1,14 @@
 import { Args, Context, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { AuthService } from './auth.service';
 import { Auth } from './entities/auth.entity';
-import { AuthResponse } from './models/auth-response';
+import { AuthResponse } from '@modules/auth/models';
 import { SignInInput, SignupInput } from './dto';
 import { MeResponse } from './models';
 import { UseGuards } from '@nestjs/common';
-import { JwtAuthGuard } from '../../guards/jwt-auth-guard';
-import { CurrentUser } from '../../common/decorators/current-user.decorator';
-import { JwtPayload } from '../../types/jwt';
+import { JwtAuthGuard } from '@guards/jwt-auth-guard';
+import { CurrentUser } from '@common/decorators/current-user.decorator';
 import { Response } from 'express';
+import { JwtPayload } from '../../types/jwt.types';
 
 @Resolver(() => Auth)
 export class AuthResolver {
