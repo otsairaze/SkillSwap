@@ -13,6 +13,7 @@ import { UserModule } from './modules/user/user.module';
       driver: ApolloDriver,
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
       sortSchema: true,
+      context: ({ req }) => ({ req }),
     }),
     AuthModule,
     UserModule,

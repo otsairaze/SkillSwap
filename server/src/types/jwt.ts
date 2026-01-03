@@ -1,4 +1,9 @@
-export type JwtPayload = {
+import { User } from '../modules/user/entities/user.entity';
+
+export interface JwtPayload {
   id: number;
-  email: string;
-};
+}
+
+export interface RequestWithUser extends Request {
+  user: User;
+}

@@ -8,13 +8,17 @@ type AuthResponse {
   user: User!
 }
 
+type MeResponse {
+  user: User!
+}
+
 type Mutation {
   signIn(signInInput: SignInInput!): AuthResponse!
   signUp(signUpInput: SignupInput!): AuthResponse!
 }
 
 type Query {
-  hello: String!
+  me: MeResponse!
 }
 
 input SignInInput {

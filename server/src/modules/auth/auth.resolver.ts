@@ -3,6 +3,11 @@ import { AuthService } from './auth.service';
 import { Auth } from './entities/auth.entity';
 import { AuthResponse } from './models/auth-response';
 import { SignInInput, SignupInput } from './dto';
+import { MeResponse } from './models';
+import { UseGuards } from '@nestjs/common';
+import { JwtAuthGuard } from '../../guards/jwt-auth-guard';
+import { CurrentUser } from '../../common/decorators/current-user.decorator';
+import { JwtPayload } from '../../types/jwt';
 
 @Resolver(() => Auth)
 export class AuthResolver {
@@ -18,8 +23,9 @@ export class AuthResolver {
     return this.authService.signin(input);
   }
 
-  @Query(() => String)
-  hello() {
-    return 'Hello World';
+  @Query(() => MeResponse)
+  @UseGuards(JwtAuthGuard)
+  async me(@CurrentUser() user: JwtPayload) {
+    return this.authService.me(user);
   }
 }

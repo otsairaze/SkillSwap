@@ -1,9 +1,10 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
-import { SignupInput } from './dto/signup-input';
+import { SignInInput, SignupInput } from './dto';
 import * as bcrypt from 'bcrypt';
 import { PrismaService } from '../../shared/prisma/prisma.service';
 import { JwtService } from '@nestjs/jwt';
-import { SignInInput } from './dto';
+import { CurrentUser } from '../../common/decorators/current-user.decorator';
+import { JwtPayload } from '../../types/jwt';
 
 @Injectable()
 export class AuthService {
@@ -35,7 +36,7 @@ export class AuthService {
       },
     });
 
-    const accessToken = this.jwtService.sign({ userId: user.id });
+    const accessToken = this.jwtService.sign({ id: user.id });
 
     return { user, accessToken };
   }
@@ -47,6 +48,8 @@ export class AuthService {
       },
     });
 
+    console.log('find user user', user);
+
     if (!user) {
       throw new UnauthorizedException();
     }
@@ -56,8 +59,20 @@ export class AuthService {
       throw new UnauthorizedException();
     }
 
-    const accessToken = this.jwtService.sign({ userId: user.id });
+    const accessToken = this.jwtService.sign({ id: user.id });
 
     return { user, accessToken };
+  }
+
+  async me(@CurrentUser() user: JwtPayload) {
+    const id = user.id;
+
+    const currentUser = await this.prisma.user.findUnique({
+      where: {
+        id,
+      },
+    });
+
+    return { user: currentUser };
   }
 }
