@@ -1,7 +1,7 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
-@custom-variant dark (&:is(.dark *));
+@custom-variant light (&:is(.light *));
 
 @theme inline {
   --color-background: var(--background);
@@ -45,72 +45,105 @@
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+    /* ===== ТЁМНАЯ ТЕМА ===== */
+    --radius: 0.625rem;
+    --background: #0E0F16;
+    --foreground: #E2E8F0;
+
+    /* Карточки и поверхности */
+    --card: #1A1B23;
+    --card-foreground: #E2E8F0;
+    --popover: #1A1B23;
+    --popover-foreground: #E2E8F0;
+
+    /* Основной акцент */
+    --primary: #fff;
+    --primary-foreground: #0a0a0a;
+
+    /* Вторичный акцент */
+    --secondary: #3B82F6;
+    --secondary-foreground: #FFFFFF;
+
+    /* Нейтральные цвета */
+    --muted: #3B3F5D;
+    --muted-foreground: #94A3B8;
+    --accent: #8C8CDB;
+    --accent-foreground: #E2E8F0;
+
+    /* Опасные действия */
+    --destructive: #EF4444;
+    --destructive-foreground: #FFFFFF;
+
+    /* Границы и инпуты */
+    --border: #ffffff;
+    --input: #2D3748;
+    --ring: #cd0303;
+
+    /* Графики */
+    --chart-1: #8B5CF6;
+    --chart-2: #3B82F6;
+    --chart-3: #10B981;
+    --chart-4: #F59E0B;
+    --chart-5: #EC4899;
+
+
+    --sidebar: #1A1B23;
+    --sidebar-foreground: #E2E8F0;
+    --sidebar-primary: #8B5CF6;
+    --sidebar-primary-foreground: #FFFFFF;
+    --sidebar-accent: #252631;
+    --sidebar-accent-foreground: #E2E8F0;
+    --sidebar-border: #2D3748;
+    --sidebar-ring: #8B5CF6;
 }
 
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+.light {
+    /* ===== СВЕТЛАЯ ТЕМА ===== */
+    --background: #F8FAFC;            /* Очень светлый серо-голубой */
+    --foreground: #0F172A;            /* Тёмно-синий текст */
+
+    --card: #FFFFFF;                  /* Чисто белый */
+    --card-foreground: #0F172A;
+    --popover: #FFFFFF;
+    --popover-foreground: #0F172A;
+
+    /* Акценты остаются те же (для консистентности бренда) */
+    --primary: #8B5CF6;               /* Тот же фиолетовый */
+    --primary-foreground: #FFFFFF;
+
+    --secondary: #3B82F6;             /* Тот же синий */
+    --secondary-foreground: #FFFFFF;
+
+    /* Нейтральные светлее */
+    --muted: #F1F5F9;                 /* Очень светлый серый */
+    --muted-foreground: #64748B;      /* Серый текст */
+    --accent: #F1F5F9;                /* Ховер состояния */
+    --accent-foreground: #0F172A;
+
+    --destructive: #EF4444;
+    --destructive-foreground: #FFFFFF;
+
+    /* Границы светлее */
+    --border: #E2E8F0;                /* Светло-серые границы */
+    --input: #E2E8F0;
+    --ring: #8B5CF6;
+
+    /* Графики - те же цвета */
+    --chart-1: #8B5CF6;
+    --chart-2: #3B82F6;
+    --chart-3: #10B981;
+    --chart-4: #F59E0B;
+    --chart-5: #EC4899;
+
+    /* Sidebar */
+    --sidebar: #FFFFFF;
+    --sidebar-foreground: #0F172A;
+    --sidebar-primary: #8B5CF6;
+    --sidebar-primary-foreground: #FFFFFF;
+    --sidebar-accent: #F1F5F9;
+    --sidebar-accent-foreground: #0F172A;
+    --sidebar-border: #E2E8F0;
+    --sidebar-ring: #8B5CF6;
 }
 
 @layer base {

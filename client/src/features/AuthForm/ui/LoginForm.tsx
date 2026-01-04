@@ -27,7 +27,6 @@ export const LoginForm = memo((props: LoginFormProps) => {
           <div className='flex flex-col gap-4 py-4'>
             <Input type='email' placeholder='Email' />
             <Input type='password' placeholder='Password' />
-            <a className='text-sm cursor-pointer text-blue-500'>Don’t have an account? Sign up</a>
           </div>
         </DialogHeader>
         <DialogFooter>

@@ -9,5 +9,5 @@ interface ContainerProps {
 export const Container = memo((props: ContainerProps) => {
   const { children, className } = props;
 
-  return <div className={cn(className, 'max-w-[1200px] m-auto p-5')}>{children}</div>;
+  return <div className={cn(className, 'max-w-[1850px] m-auto p-5')}>{children}</div>;
 });

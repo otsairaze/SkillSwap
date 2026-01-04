@@ -1,17 +1,18 @@
-import { Handshake, InfoIcon } from 'lucide-react';
 import type { NavigationListTypes } from '@/widgets/Navigation';
 
 export const getNavigationList = (): NavigationListTypes[] => {
   return [
     {
-      href: '/info',
-      icon: InfoIcon,
-      title: 'Info',
+      href: '/blog',
+      title: 'Blog',
     },
     {
       href: '/about',
-      icon: Handshake,
-      title: 'About',
+      title: 'About us',
+    },
+    {
+      href: '/github',
+      title: 'Github',
     },
   ];
 };

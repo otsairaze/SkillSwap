@@ -1,0 +1,74 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    max-width: 1850px;
+    margin: 0 auto;
+    overflow: hidden;
+    gap: 50px;
+    padding-top: 100px;
+}
+
+.inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    width: 100%;
+}
+
+.title {
+    font-size: 270px;
+    line-height: 0.85;
+    letter-spacing: -0.03em;
+    font-weight: 800;
+    flex-shrink: 0;
+    margin: 0;
+
+}
+
+.subtitle {
+    max-width: min(400px, 30vw);
+    text-align: right;
+    font-size: 18px;
+    line-height: 1.4;
+    color: var(--muted);
+}
+
+.linkBtn{
+    align-self: end;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    text-align: right;
+    letter-spacing: 0.3em;
+    color: var(--accent);
+    cursor: pointer;
+}
+
+.accent {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.secondTitle {
+    font-size: 270px;
+    line-height: 0.85;
+    letter-spacing: -0.03em;
+    font-weight: 800;
+    flex-shrink: 0;
+    margin: 0;
+    z-index: 2;
+
+}
+
+.secondSubtitle {
+    max-width: 350px;
+    font-size: 18px;
+    color: var(--muted);
+}
+
+.secondCircle{
+    position: absolute;
+    top: -700px;
+    left: -700px;
+}
+

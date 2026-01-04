@@ -7,11 +7,10 @@ interface NavigationItemProps extends NavigationListTypes {
 }
 
 export const NavigationItem = memo((props: NavigationItemProps) => {
-  const { title, icon: Icon, className } = props;
+  const { title, className } = props;
 
   return (
     <li className={cn(className, 'flex gap-[5px] items-center')}>
-      <Icon className='w-4 h-4' />
       <span>{title}</span>
     </li>
   );

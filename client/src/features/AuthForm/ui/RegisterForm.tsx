@@ -28,14 +28,6 @@ export const RegisterForm = memo((props: RegisterFormProps) => {
             <Input type='email' placeholder='Email' />
             <Input type='text' placeholder='Login' />
             <Input type='password' placeholder='Password' />
-            <a
-              className='text-sm cursor-pointer text-blue-500'
-              onClick={() => {
-                setOpen(false);
-              }}
-            >
-              Already have an account and want to sign in?
-            </a>
           </div>
         </DialogHeader>
         <DialogFooter>
