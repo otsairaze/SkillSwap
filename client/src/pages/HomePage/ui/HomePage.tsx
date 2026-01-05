@@ -3,7 +3,7 @@ import { Header } from '@/widgets/Header';
 import { StarsBackground } from '@/shared/lib/particles/particles';
 import { HowItWorks } from '@/widgets/HowItWorks';
 
-export default function Home() {
+export const HomePage = () => {
   return (
     <>
       <div>
@@ -14,4 +14,4 @@ export default function Home() {
       </div>
     </>
   );
-}
+};

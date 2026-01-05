@@ -1,7 +1,7 @@
 import { Inter } from 'next/font/google';
 import { Container } from '@/shared/ui/container';
 import type { Metadata } from 'next';
-import './styles/globals.css';
+import '@/app/styles/globals.css';
 
 export const metadata: Metadata = {
   title: 'SkillSwap | Next App',
