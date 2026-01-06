@@ -2,8 +2,8 @@ import { memo } from 'react';
 import { Dialog, DialogClose, DialogContent, DialogHeader, DialogTitle } from '@/shared/ui/dialog';
 import { Input } from '@/shared/ui/input';
 import { Button } from '@/shared/ui/button';
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/shared/ui/form'; // <-- Добавляем
-import { useLoginForm } from '../hooks/useLoginForm';
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/shared/ui/form';
+import { useLoginForm } from '../lib/hooks/useLoginForm';
 
 interface LoginFormProps {
   open: boolean;

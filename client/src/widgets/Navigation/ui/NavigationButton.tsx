@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Button } from '@/shared/ui/button';
-import { LoginForm, RegisterForm } from '@/features/AuthForm';
+import { LoginForm, RegisterForm } from '@/features/Auth';
 
 type AuthModal = 'login' | 'register' | null;
 

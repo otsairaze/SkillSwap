@@ -1,5 +1,5 @@
-@import "tailwindcss";
-@import "tw-animate-css";
+@import 'tailwindcss';
+@import 'tw-animate-css';
 
 @custom-variant light (&:is(.light *));
 
@@ -45,7 +45,6 @@
 }
 
 :root {
-
   --radius: 0.625rem;
   --background: #0e0f16;
   --foreground: #e2e8f0;
@@ -90,7 +89,6 @@
 }
 
 .light {
-
   --background: #f8fafc;
   --foreground: #0f172a;
 
@@ -104,7 +102,6 @@
 
   --secondary: #3b82f6;
   --secondary-foreground: #ffffff;
-
 
   --muted: #f1f5f9;
   --muted-foreground: #64748b; /* Серый текст */

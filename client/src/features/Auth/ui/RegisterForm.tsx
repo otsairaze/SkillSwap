@@ -3,7 +3,7 @@ import { Dialog, DialogClose, DialogContent, DialogHeader, DialogTitle } from '@
 import { Input } from '@/shared/ui/input';
 import { Button } from '@/shared/ui/button';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/shared/ui/form';
-import { useRegisterForm } from '../hooks/useRegisterForm';
+import { useRegisterForm } from '../lib/hooks/useRegisterForm';
 
 interface RegisterFormProps {
   open: boolean;

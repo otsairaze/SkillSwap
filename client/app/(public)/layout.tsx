@@ -1,6 +1,7 @@
 import { Inter } from 'next/font/google';
 import { Container } from '@/shared/ui/container';
 import { ApolloProvider } from '@/app/providers/ApolloProvider';
+import { Guard } from '@/app/providers/Guard';
 import type { Metadata } from 'next';
 import '@/app/styles/globals.css';
 
@@ -24,7 +25,9 @@ export default function RootLayout({
     <html lang='en' data-mode='light' className={inter.className}>
       <body>
         <ApolloProvider>
-          <Container>{children}</Container>
+          <Guard>
+            <Container>{children}</Container>
+          </Guard>
         </ApolloProvider>
       </body>
     </html>
