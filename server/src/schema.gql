@@ -3,8 +3,6 @@
 # ------------------------------------------------------
 
 type AuthResponse {
-  accessToken: String!
-  refreshToken: String!
   user: User!
 }
 

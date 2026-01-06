@@ -3,12 +3,6 @@ import { User } from '../../user/entities/user.entity';
 
 @ObjectType()
 export class AuthResponse {
-  @Field()
-  accessToken: string;
-
-  @Field()
-  refreshToken: string;
-
   @Field(() => User)
   user: User;
 }

@@ -40,9 +40,9 @@ export class AuthService {
       },
     });
 
-    const accessToken = this.generateToken({ id: user.id }, res);
+    await this.generateToken({ id: user.id }, res);
 
-    return { user, accessToken };
+    return { user };
   }
 
   async signin(input: SignInInput, res: Response) {
@@ -63,9 +63,9 @@ export class AuthService {
       throw new UnauthorizedException();
     }
 
-    const accessToken = this.generateToken({ id: user.id }, res);
+    await this.generateToken({ id: user.id }, res);
 
-    return { user, accessToken };
+    return { user };
   }
 
   async me(@CurrentUser() user: JwtPayload) {
@@ -97,13 +97,37 @@ export class AuthService {
       },
     );
 
-    res.cookie('refreshToken', refreshToken, {
-      httpOnly: true,
+    console.log('=== TOKEN DEBUG ===');
+    console.log(
+      'accessToken generated:',
+      !!accessToken,
+      'length:',
+      accessToken?.length,
+    );
+    console.log(
+      'refreshToken generated:',
+      !!refreshToken,
+      'length:',
+      refreshToken?.length,
+    );
+
+    console.log('Response object has cookie method:', typeof res.cookie);
+
+    res.cookie('accessToken', accessToken, {
+      httpOnly: false,
       secure: false,
-      sameSite: 'lax',
+      maxAge: 15 * 60 * 1000,
+    });
+
+    res.cookie('refreshToken', refreshToken, {
+      httpOnly: false,
+      secure: false,
       maxAge: 30 * 24 * 60 * 60 * 1000,
     });
 
-    return accessToken;
+    const setCookieHeaders = res.getHeader('Set-Cookie');
+    console.log('Set-Cookie headers:', setCookieHeaders);
+
+    return { accessToken, refreshToken };
   }
 }

@@ -8,7 +8,6 @@ export const SIGN_IN_MUTATION = gql`
       user {
         ...UserFields
       }
-      accessToken
     }
   }
 `;

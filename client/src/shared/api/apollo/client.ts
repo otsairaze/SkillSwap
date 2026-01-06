@@ -1,12 +1,14 @@
-import { ApolloClient, HttpLink, InMemoryCache } from '@apollo/client';
-import { registerApolloClient } from '@apollo/client-integration-nextjs';
+import { HttpLink } from '@apollo/client';
+import { ApolloClient, InMemoryCache } from '@apollo/client-integration-nextjs';
 
-export const { getClient } = registerApolloClient(() => {
+export function makeClient() {
+  const httpLink = new HttpLink({
+    uri: process.env.NEXT_PUBLIC_GRAPHQL_URI,
+    credentials: 'include',
+  });
+
   return new ApolloClient({
     cache: new InMemoryCache(),
-    link: new HttpLink({
-      uri: process.env.NEXT_PUBLIC_GRAPHQL_URI,
-      credentials: 'include',
-    }),
+    link: httpLink,
   });
-});
+}

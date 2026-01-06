@@ -5,6 +5,7 @@ import { ExtractJwt, Strategy, StrategyOptions } from 'passport-jwt';
 import { UserService } from '@modules/user';
 import { ConfigService } from '@nestjs/config';
 import { JwtPayload } from '../types/jwt.types';
+import { Request } from 'express';
 
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
@@ -13,7 +14,15 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     private readonly configService: ConfigService,
   ) {
     const options: StrategyOptions = {
-      jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+      jwtFromRequest: ExtractJwt.fromExtractors([
+        (request: Request) => {
+          if (request.cookies?.accessToken) {
+            return request.cookies.accessToken;
+          }
+
+          return ExtractJwt.fromAuthHeaderAsBearerToken()(request);
+        },
+      ]),
       ignoreExpiration: false,
       secretOrKey: configService.getOrThrow('JWT_ACCESS_SECRET'),
     };
