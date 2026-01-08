@@ -1,6 +1,6 @@
 import type { NavigationListTypes } from '@/widgets/Navigation';
 
-export const getNavigationList = (): NavigationListTypes[] => {
+export const getNavigationAuthList = (): NavigationListTypes[] => {
   return [
     {
       href: '/blog',

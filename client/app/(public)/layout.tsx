@@ -1,7 +1,7 @@
 import { Inter } from 'next/font/google';
 import { Container } from '@/shared/ui/container';
 import { ApolloProvider } from '@/app/providers/ApolloProvider';
-import { Guard } from '@/app/providers/Guard';
+import { Guard } from '@/app/providers/AuthGuard';
 import type { Metadata } from 'next';
 import '@/app/styles/globals.css';
 
