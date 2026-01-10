@@ -18,7 +18,7 @@ export const HomePage = () => {
     if (!loading) {
       setUser(user || null);
     }
-  }, [user, loading, setUser]);
+  }, [user]);
 
   if (loading) {
     return (
