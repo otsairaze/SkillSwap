@@ -1,8 +1,8 @@
-import { getNavigationList } from '../model/selectors/getNavigationList';
+import { getNavigationAuthList } from '../model/selectors/getNavigationAuthList';
 import { NavigationItem } from './NavigationItem';
 
 export const NavigationAuthList = () => {
-  const list = getNavigationList();
+  const list = getNavigationAuthList();
 
   return (
     <ul className={'flex items-center gap-[15px] uppercase tracking-widest'}>

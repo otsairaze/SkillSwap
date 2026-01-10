@@ -8,7 +8,15 @@ import { NavigationList } from './NavigationList';
 import { NavigationButton } from './NavigationButton';
 
 export const Navigation = memo(() => {
-  const { isAuthenticated } = useAuthStore();
+  const { isAuthenticated, user } = useAuthStore();
+
+  console.log(isAuthenticated);
+
+  console.log('Navigation:', {
+    isAuthenticated,
+    user,
+    typeofUser: typeof user,
+  });
 
   return (
     <nav className={'flex items-center justify-between'}>

@@ -8,7 +8,7 @@ export const useGetMe = () => {
   const { data, loading, error, refetch } = useQuery<MeResponse, MeQueryVariables>(GET_ME);
 
   return {
-    user: data?.me,
+    user: data?.me || null,
     loading,
     error,
     refetch,

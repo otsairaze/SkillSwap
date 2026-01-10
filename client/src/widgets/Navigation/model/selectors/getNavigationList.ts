@@ -14,9 +14,5 @@ export const getNavigationList = (): NavigationListTypes[] => {
       href: '/github',
       title: 'Github',
     },
-    {
-      href: '/profile',
-      title: 'Profile',
-    },
   ];
 };
