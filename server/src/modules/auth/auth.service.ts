@@ -52,8 +52,6 @@ export class AuthService {
       },
     });
 
-    console.log('find user user', user);
-
     if (!user) {
       throw new UnauthorizedException();
     }
@@ -97,37 +95,17 @@ export class AuthService {
       },
     );
 
-    console.log('=== TOKEN DEBUG ===');
-    console.log(
-      'accessToken generated:',
-      !!accessToken,
-      'length:',
-      accessToken?.length,
-    );
-    console.log(
-      'refreshToken generated:',
-      !!refreshToken,
-      'length:',
-      refreshToken?.length,
-    );
-
-    console.log('Response object has cookie method:', typeof res.cookie);
-
     res.cookie('accessToken', accessToken, {
-      httpOnly: false,
+      httpOnly: true,
       secure: false,
-      // maxAge: 15 * 60 * 1000,
-      maxAge: 30 * 24 * 60 * 60 * 1000,
+      maxAge: 15 * 60 * 1000,
     });
 
     res.cookie('refreshToken', refreshToken, {
-      httpOnly: false,
+      httpOnly: true,
       secure: false,
       maxAge: 30 * 24 * 60 * 60 * 1000,
     });
-
-    const setCookieHeaders = res.getHeader('Set-Cookie');
-    console.log('Set-Cookie headers:', setCookieHeaders);
 
     return { accessToken, refreshToken };
   }

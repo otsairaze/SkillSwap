@@ -7,6 +7,7 @@ import { JwtStrategy } from '@guards/passport-strategy';
 import { UserService } from '@modules/user';
 import { PassportModule } from '@nestjs/passport';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { AuthMiddleware } from '@common/middleware/refresh-token-middlware';
 
 @Module({
   imports: [
@@ -26,6 +27,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
     PrismaService,
     JwtStrategy,
     UserService,
+    AuthMiddleware,
   ],
 })
 export class AuthModule {}
