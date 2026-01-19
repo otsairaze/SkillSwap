@@ -5,7 +5,8 @@ on:
     paths:
       - 'client/**'
   pull_request:
-    branches: [main, 'feature/**']
+    branches:
+      - main
     paths:
       - 'client/**'
 
@@ -50,6 +51,6 @@ jobs:
         with:
           name: 'client build'
           path: './client/dist'
-          retention-days: 7ы
+          retention-days: 7s
 
 
