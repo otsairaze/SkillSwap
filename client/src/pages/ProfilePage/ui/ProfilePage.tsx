@@ -1,7 +1,7 @@
 export const ProfilePage = () => {
   return (
     <>
-      <div>page</div>
+      <div>test</div>
     </>
   );
 };
