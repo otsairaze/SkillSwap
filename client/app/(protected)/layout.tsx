@@ -1,8 +1,8 @@
 import { Inter } from 'next/font/google';
-import type { Metadata } from 'next';
 import '@/app/styles/globals.css';
 import { ProfileNavigation } from '@/widgets/ProfileNavigation';
 import { Container } from '@/shared/ui/container';
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'SkillSwap | Next App',
