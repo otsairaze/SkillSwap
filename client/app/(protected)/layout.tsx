@@ -1,7 +1,8 @@
 import { Inter } from 'next/font/google';
+import '@/app/styles/globals.css';
+import { ProfileNavigation } from '@/widgets/ProfileNavigation';
 import { Container } from '@/shared/ui/container';
 import type { Metadata } from 'next';
-import '@/app/styles/globals.css';
 
 export const metadata: Metadata = {
   title: 'SkillSwap | Next App',
@@ -14,15 +15,20 @@ const inter = Inter({
   subsets: ['latin'],
 });
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='en' data-mode='light' className={inter.className}>
       <body>
-        <Container>{children}</Container>
+        <div className='min-h-screen bg-background'>
+          <Container>
+            <div className='grid grid-cols-[280px_1fr] gap-8 py-6'>
+              <aside className='sticky top-6 self-start'>
+                <ProfileNavigation />
+              </aside>
+              <main className='min-w-0'>{children}</main>
+            </div>
+          </Container>
+        </div>
       </body>
     </html>
   );
