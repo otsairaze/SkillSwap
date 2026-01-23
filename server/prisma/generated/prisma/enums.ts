@@ -9,10 +9,19 @@
 * 🟢 You can import this file directly.
 */
 
-export const SKillLevel = {
+export const SkillLevel = {
   BEGINNER: 'BEGINNER',
   INTERMEDIATE: 'INTERMEDIATE',
   ADVANCED: 'ADVANCED'
 } as const
 
-export type SKillLevel = (typeof SKillLevel)[keyof typeof SKillLevel]
+export type SkillLevel = (typeof SkillLevel)[keyof typeof SkillLevel]
+
+
+export const SkillStatus = {
+  PENDING: 'PENDING',
+  SUCCESS: 'SUCCESS',
+  ERROR: 'ERROR'
+} as const
+
+export type SkillStatus = (typeof SkillStatus)[keyof typeof SkillStatus]

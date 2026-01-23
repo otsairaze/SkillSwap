@@ -84,7 +84,8 @@ export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof User
 
 export const SkillScalarFieldEnum = {
   id: 'id',
-  name: 'name'
+  name: 'name',
+  status: 'status'
 } as const
 
 export type SkillScalarFieldEnum = (typeof SkillScalarFieldEnum)[keyof typeof SkillScalarFieldEnum]

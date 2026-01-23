@@ -10,7 +10,7 @@ export const getNavigationProfile = (): ProfileNavigationTypes[] => {
       title: 'Skills & Goals',
       children: [
         {
-          href: '/profile/skills',
+          href: '/profile/skill',
           title: 'My Skills',
         },
         {

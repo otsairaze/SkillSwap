@@ -37,16 +37,19 @@ export type SkillSumAggregateOutputType = {
 export type SkillMinAggregateOutputType = {
   id: number | null
   name: string | null
+  status: $Enums.SkillStatus | null
 }
 
 export type SkillMaxAggregateOutputType = {
   id: number | null
   name: string | null
+  status: $Enums.SkillStatus | null
 }
 
 export type SkillCountAggregateOutputType = {
   id: number
   name: number
+  status: number
   _all: number
 }
 
@@ -62,16 +65,19 @@ export type SkillSumAggregateInputType = {
 export type SkillMinAggregateInputType = {
   id?: true
   name?: true
+  status?: true
 }
 
 export type SkillMaxAggregateInputType = {
   id?: true
   name?: true
+  status?: true
 }
 
 export type SkillCountAggregateInputType = {
   id?: true
   name?: true
+  status?: true
   _all?: true
 }
 
@@ -164,6 +170,7 @@ export type SkillGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalAr
 export type SkillGroupByOutputType = {
   id: number
   name: string
+  status: $Enums.SkillStatus
   _count: SkillCountAggregateOutputType | null
   _avg: SkillAvgAggregateOutputType | null
   _sum: SkillSumAggregateOutputType | null
@@ -192,12 +199,14 @@ export type SkillWhereInput = {
   NOT?: Prisma.SkillWhereInput | Prisma.SkillWhereInput[]
   id?: Prisma.IntFilter<"Skill"> | number
   name?: Prisma.StringFilter<"Skill"> | string
+  status?: Prisma.EnumSkillStatusFilter<"Skill"> | $Enums.SkillStatus
   users?: Prisma.UserSkillListRelationFilter
 }
 
 export type SkillOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  status?: Prisma.SortOrder
   users?: Prisma.UserSkillOrderByRelationAggregateInput
 }
 
@@ -207,12 +216,14 @@ export type SkillWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.SkillWhereInput | Prisma.SkillWhereInput[]
   OR?: Prisma.SkillWhereInput[]
   NOT?: Prisma.SkillWhereInput | Prisma.SkillWhereInput[]
+  status?: Prisma.EnumSkillStatusFilter<"Skill"> | $Enums.SkillStatus
   users?: Prisma.UserSkillListRelationFilter
 }, "id" | "name">
 
 export type SkillOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  status?: Prisma.SortOrder
   _count?: Prisma.SkillCountOrderByAggregateInput
   _avg?: Prisma.SkillAvgOrderByAggregateInput
   _max?: Prisma.SkillMaxOrderByAggregateInput
@@ -226,47 +237,56 @@ export type SkillScalarWhereWithAggregatesInput = {
   NOT?: Prisma.SkillScalarWhereWithAggregatesInput | Prisma.SkillScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"Skill"> | number
   name?: Prisma.StringWithAggregatesFilter<"Skill"> | string
+  status?: Prisma.EnumSkillStatusWithAggregatesFilter<"Skill"> | $Enums.SkillStatus
 }
 
 export type SkillCreateInput = {
   name: string
+  status: $Enums.SkillStatus
   users?: Prisma.UserSkillCreateNestedManyWithoutSkillInput
 }
 
 export type SkillUncheckedCreateInput = {
   id?: number
   name: string
+  status: $Enums.SkillStatus
   users?: Prisma.UserSkillUncheckedCreateNestedManyWithoutSkillInput
 }
 
 export type SkillUpdateInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumSkillStatusFieldUpdateOperationsInput | $Enums.SkillStatus
   users?: Prisma.UserSkillUpdateManyWithoutSkillNestedInput
 }
 
 export type SkillUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumSkillStatusFieldUpdateOperationsInput | $Enums.SkillStatus
   users?: Prisma.UserSkillUncheckedUpdateManyWithoutSkillNestedInput
 }
 
 export type SkillCreateManyInput = {
   id?: number
   name: string
+  status: $Enums.SkillStatus
 }
 
 export type SkillUpdateManyMutationInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumSkillStatusFieldUpdateOperationsInput | $Enums.SkillStatus
 }
 
 export type SkillUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumSkillStatusFieldUpdateOperationsInput | $Enums.SkillStatus
 }
 
 export type SkillCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  status?: Prisma.SortOrder
 }
 
 export type SkillAvgOrderByAggregateInput = {
@@ -276,11 +296,13 @@ export type SkillAvgOrderByAggregateInput = {
 export type SkillMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  status?: Prisma.SortOrder
 }
 
 export type SkillMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  status?: Prisma.SortOrder
 }
 
 export type SkillSumOrderByAggregateInput = {
@@ -290,6 +312,10 @@ export type SkillSumOrderByAggregateInput = {
 export type SkillScalarRelationFilter = {
   is?: Prisma.SkillWhereInput
   isNot?: Prisma.SkillWhereInput
+}
+
+export type EnumSkillStatusFieldUpdateOperationsInput = {
+  set?: $Enums.SkillStatus
 }
 
 export type SkillCreateNestedOneWithoutUsersInput = {
@@ -308,11 +334,13 @@ export type SkillUpdateOneRequiredWithoutUsersNestedInput = {
 
 export type SkillCreateWithoutUsersInput = {
   name: string
+  status: $Enums.SkillStatus
 }
 
 export type SkillUncheckedCreateWithoutUsersInput = {
   id?: number
   name: string
+  status: $Enums.SkillStatus
 }
 
 export type SkillCreateOrConnectWithoutUsersInput = {
@@ -333,11 +361,13 @@ export type SkillUpdateToOneWithWhereWithoutUsersInput = {
 
 export type SkillUpdateWithoutUsersInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumSkillStatusFieldUpdateOperationsInput | $Enums.SkillStatus
 }
 
 export type SkillUncheckedUpdateWithoutUsersInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.EnumSkillStatusFieldUpdateOperationsInput | $Enums.SkillStatus
 }
 
 
@@ -374,6 +404,7 @@ export type SkillCountOutputTypeCountUsersArgs<ExtArgs extends runtime.Types.Ext
 export type SkillSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
+  status?: boolean
   users?: boolean | Prisma.Skill$usersArgs<ExtArgs>
   _count?: boolean | Prisma.SkillCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["skill"]>
@@ -381,19 +412,22 @@ export type SkillSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
 export type SkillSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
+  status?: boolean
 }, ExtArgs["result"]["skill"]>
 
 export type SkillSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
+  status?: boolean
 }, ExtArgs["result"]["skill"]>
 
 export type SkillSelectScalar = {
   id?: boolean
   name?: boolean
+  status?: boolean
 }
 
-export type SkillOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name", ExtArgs["result"]["skill"]>
+export type SkillOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "status", ExtArgs["result"]["skill"]>
 export type SkillInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   users?: boolean | Prisma.Skill$usersArgs<ExtArgs>
   _count?: boolean | Prisma.SkillCountOutputTypeDefaultArgs<ExtArgs>
@@ -409,6 +443,7 @@ export type $SkillPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
     name: string
+    status: $Enums.SkillStatus
   }, ExtArgs["result"]["skill"]>
   composites: {}
 }
@@ -835,6 +870,7 @@ export interface Prisma__SkillClient<T, Null = never, ExtArgs extends runtime.Ty
 export interface SkillFieldRefs {
   readonly id: Prisma.FieldRef<"Skill", 'Int'>
   readonly name: Prisma.FieldRef<"Skill", 'String'>
+  readonly status: Prisma.FieldRef<"Skill", 'SkillStatus'>
 }
     
 

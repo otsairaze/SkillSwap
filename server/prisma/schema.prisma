@@ -16,15 +16,17 @@ model User {
 }
 
 model Skill {
-  id    Int         @id @default(autoincrement())
-  name  String      @unique
+  id     Int         @id @default(autoincrement())
+  name   String      @unique
+  status SkillStatus
+
   users UserSkill[]
 }
 
 model UserSkill {
   userId    Int
   skillId   Int
-  level     SKillLevel
+  level     SkillLevel
   confirmed Boolean    @default(false)
 
   user  User  @relation(fields: [userId], references: [id])
@@ -33,8 +35,14 @@ model UserSkill {
   @@id([userId, skillId])
 }
 
-enum SKillLevel {
+enum SkillLevel {
   BEGINNER
   INTERMEDIATE
   ADVANCED
+}
+
+enum SkillStatus {
+  PENDING
+  SUCCESS
+  ERROR
 }

@@ -39,14 +39,14 @@ export type UserSkillSumAggregateOutputType = {
 export type UserSkillMinAggregateOutputType = {
   userId: number | null
   skillId: number | null
-  level: $Enums.SKillLevel | null
+  level: $Enums.SkillLevel | null
   confirmed: boolean | null
 }
 
 export type UserSkillMaxAggregateOutputType = {
   userId: number | null
   skillId: number | null
-  level: $Enums.SKillLevel | null
+  level: $Enums.SkillLevel | null
   confirmed: boolean | null
 }
 
@@ -180,7 +180,7 @@ export type UserSkillGroupByArgs<ExtArgs extends runtime.Types.Extensions.Intern
 export type UserSkillGroupByOutputType = {
   userId: number
   skillId: number
-  level: $Enums.SKillLevel
+  level: $Enums.SkillLevel
   confirmed: boolean
   _count: UserSkillCountAggregateOutputType | null
   _avg: UserSkillAvgAggregateOutputType | null
@@ -210,7 +210,7 @@ export type UserSkillWhereInput = {
   NOT?: Prisma.UserSkillWhereInput | Prisma.UserSkillWhereInput[]
   userId?: Prisma.IntFilter<"UserSkill"> | number
   skillId?: Prisma.IntFilter<"UserSkill"> | number
-  level?: Prisma.EnumSKillLevelFilter<"UserSkill"> | $Enums.SKillLevel
+  level?: Prisma.EnumSkillLevelFilter<"UserSkill"> | $Enums.SkillLevel
   confirmed?: Prisma.BoolFilter<"UserSkill"> | boolean
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   skill?: Prisma.XOR<Prisma.SkillScalarRelationFilter, Prisma.SkillWhereInput>
@@ -232,7 +232,7 @@ export type UserSkillWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.UserSkillWhereInput | Prisma.UserSkillWhereInput[]
   userId?: Prisma.IntFilter<"UserSkill"> | number
   skillId?: Prisma.IntFilter<"UserSkill"> | number
-  level?: Prisma.EnumSKillLevelFilter<"UserSkill"> | $Enums.SKillLevel
+  level?: Prisma.EnumSkillLevelFilter<"UserSkill"> | $Enums.SkillLevel
   confirmed?: Prisma.BoolFilter<"UserSkill"> | boolean
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   skill?: Prisma.XOR<Prisma.SkillScalarRelationFilter, Prisma.SkillWhereInput>
@@ -256,12 +256,12 @@ export type UserSkillScalarWhereWithAggregatesInput = {
   NOT?: Prisma.UserSkillScalarWhereWithAggregatesInput | Prisma.UserSkillScalarWhereWithAggregatesInput[]
   userId?: Prisma.IntWithAggregatesFilter<"UserSkill"> | number
   skillId?: Prisma.IntWithAggregatesFilter<"UserSkill"> | number
-  level?: Prisma.EnumSKillLevelWithAggregatesFilter<"UserSkill"> | $Enums.SKillLevel
+  level?: Prisma.EnumSkillLevelWithAggregatesFilter<"UserSkill"> | $Enums.SkillLevel
   confirmed?: Prisma.BoolWithAggregatesFilter<"UserSkill"> | boolean
 }
 
 export type UserSkillCreateInput = {
-  level: $Enums.SKillLevel
+  level: $Enums.SkillLevel
   confirmed?: boolean
   user: Prisma.UserCreateNestedOneWithoutSkillsInput
   skill: Prisma.SkillCreateNestedOneWithoutUsersInput
@@ -270,12 +270,12 @@ export type UserSkillCreateInput = {
 export type UserSkillUncheckedCreateInput = {
   userId: number
   skillId: number
-  level: $Enums.SKillLevel
+  level: $Enums.SkillLevel
   confirmed?: boolean
 }
 
 export type UserSkillUpdateInput = {
-  level?: Prisma.EnumSKillLevelFieldUpdateOperationsInput | $Enums.SKillLevel
+  level?: Prisma.EnumSkillLevelFieldUpdateOperationsInput | $Enums.SkillLevel
   confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   user?: Prisma.UserUpdateOneRequiredWithoutSkillsNestedInput
   skill?: Prisma.SkillUpdateOneRequiredWithoutUsersNestedInput
@@ -284,26 +284,26 @@ export type UserSkillUpdateInput = {
 export type UserSkillUncheckedUpdateInput = {
   userId?: Prisma.IntFieldUpdateOperationsInput | number
   skillId?: Prisma.IntFieldUpdateOperationsInput | number
-  level?: Prisma.EnumSKillLevelFieldUpdateOperationsInput | $Enums.SKillLevel
+  level?: Prisma.EnumSkillLevelFieldUpdateOperationsInput | $Enums.SkillLevel
   confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
 }
 
 export type UserSkillCreateManyInput = {
   userId: number
   skillId: number
-  level: $Enums.SKillLevel
+  level: $Enums.SkillLevel
   confirmed?: boolean
 }
 
 export type UserSkillUpdateManyMutationInput = {
-  level?: Prisma.EnumSKillLevelFieldUpdateOperationsInput | $Enums.SKillLevel
+  level?: Prisma.EnumSkillLevelFieldUpdateOperationsInput | $Enums.SkillLevel
   confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
 }
 
 export type UserSkillUncheckedUpdateManyInput = {
   userId?: Prisma.IntFieldUpdateOperationsInput | number
   skillId?: Prisma.IntFieldUpdateOperationsInput | number
-  level?: Prisma.EnumSKillLevelFieldUpdateOperationsInput | $Enums.SKillLevel
+  level?: Prisma.EnumSkillLevelFieldUpdateOperationsInput | $Enums.SkillLevel
   confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
 }
 
@@ -437,8 +437,8 @@ export type UserSkillUncheckedUpdateManyWithoutSkillNestedInput = {
   deleteMany?: Prisma.UserSkillScalarWhereInput | Prisma.UserSkillScalarWhereInput[]
 }
 
-export type EnumSKillLevelFieldUpdateOperationsInput = {
-  set?: $Enums.SKillLevel
+export type EnumSkillLevelFieldUpdateOperationsInput = {
+  set?: $Enums.SkillLevel
 }
 
 export type BoolFieldUpdateOperationsInput = {
@@ -446,14 +446,14 @@ export type BoolFieldUpdateOperationsInput = {
 }
 
 export type UserSkillCreateWithoutUserInput = {
-  level: $Enums.SKillLevel
+  level: $Enums.SkillLevel
   confirmed?: boolean
   skill: Prisma.SkillCreateNestedOneWithoutUsersInput
 }
 
 export type UserSkillUncheckedCreateWithoutUserInput = {
   skillId: number
-  level: $Enums.SKillLevel
+  level: $Enums.SkillLevel
   confirmed?: boolean
 }
 
@@ -489,19 +489,19 @@ export type UserSkillScalarWhereInput = {
   NOT?: Prisma.UserSkillScalarWhereInput | Prisma.UserSkillScalarWhereInput[]
   userId?: Prisma.IntFilter<"UserSkill"> | number
   skillId?: Prisma.IntFilter<"UserSkill"> | number
-  level?: Prisma.EnumSKillLevelFilter<"UserSkill"> | $Enums.SKillLevel
+  level?: Prisma.EnumSkillLevelFilter<"UserSkill"> | $Enums.SkillLevel
   confirmed?: Prisma.BoolFilter<"UserSkill"> | boolean
 }
 
 export type UserSkillCreateWithoutSkillInput = {
-  level: $Enums.SKillLevel
+  level: $Enums.SkillLevel
   confirmed?: boolean
   user: Prisma.UserCreateNestedOneWithoutSkillsInput
 }
 
 export type UserSkillUncheckedCreateWithoutSkillInput = {
   userId: number
-  level: $Enums.SKillLevel
+  level: $Enums.SkillLevel
   confirmed?: boolean
 }
 
@@ -533,49 +533,49 @@ export type UserSkillUpdateManyWithWhereWithoutSkillInput = {
 
 export type UserSkillCreateManyUserInput = {
   skillId: number
-  level: $Enums.SKillLevel
+  level: $Enums.SkillLevel
   confirmed?: boolean
 }
 
 export type UserSkillUpdateWithoutUserInput = {
-  level?: Prisma.EnumSKillLevelFieldUpdateOperationsInput | $Enums.SKillLevel
+  level?: Prisma.EnumSkillLevelFieldUpdateOperationsInput | $Enums.SkillLevel
   confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   skill?: Prisma.SkillUpdateOneRequiredWithoutUsersNestedInput
 }
 
 export type UserSkillUncheckedUpdateWithoutUserInput = {
   skillId?: Prisma.IntFieldUpdateOperationsInput | number
-  level?: Prisma.EnumSKillLevelFieldUpdateOperationsInput | $Enums.SKillLevel
+  level?: Prisma.EnumSkillLevelFieldUpdateOperationsInput | $Enums.SkillLevel
   confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
 }
 
 export type UserSkillUncheckedUpdateManyWithoutUserInput = {
   skillId?: Prisma.IntFieldUpdateOperationsInput | number
-  level?: Prisma.EnumSKillLevelFieldUpdateOperationsInput | $Enums.SKillLevel
+  level?: Prisma.EnumSkillLevelFieldUpdateOperationsInput | $Enums.SkillLevel
   confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
 }
 
 export type UserSkillCreateManySkillInput = {
   userId: number
-  level: $Enums.SKillLevel
+  level: $Enums.SkillLevel
   confirmed?: boolean
 }
 
 export type UserSkillUpdateWithoutSkillInput = {
-  level?: Prisma.EnumSKillLevelFieldUpdateOperationsInput | $Enums.SKillLevel
+  level?: Prisma.EnumSkillLevelFieldUpdateOperationsInput | $Enums.SkillLevel
   confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   user?: Prisma.UserUpdateOneRequiredWithoutSkillsNestedInput
 }
 
 export type UserSkillUncheckedUpdateWithoutSkillInput = {
   userId?: Prisma.IntFieldUpdateOperationsInput | number
-  level?: Prisma.EnumSKillLevelFieldUpdateOperationsInput | $Enums.SKillLevel
+  level?: Prisma.EnumSkillLevelFieldUpdateOperationsInput | $Enums.SkillLevel
   confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
 }
 
 export type UserSkillUncheckedUpdateManyWithoutSkillInput = {
   userId?: Prisma.IntFieldUpdateOperationsInput | number
-  level?: Prisma.EnumSKillLevelFieldUpdateOperationsInput | $Enums.SKillLevel
+  level?: Prisma.EnumSkillLevelFieldUpdateOperationsInput | $Enums.SkillLevel
   confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
 }
 
@@ -638,7 +638,7 @@ export type $UserSkillPayload<ExtArgs extends runtime.Types.Extensions.InternalA
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     userId: number
     skillId: number
-    level: $Enums.SKillLevel
+    level: $Enums.SkillLevel
     confirmed: boolean
   }, ExtArgs["result"]["userSkill"]>
   composites: {}
@@ -1067,7 +1067,7 @@ export interface Prisma__UserSkillClient<T, Null = never, ExtArgs extends runtim
 export interface UserSkillFieldRefs {
   readonly userId: Prisma.FieldRef<"UserSkill", 'Int'>
   readonly skillId: Prisma.FieldRef<"UserSkill", 'Int'>
-  readonly level: Prisma.FieldRef<"UserSkill", 'SKillLevel'>
+  readonly level: Prisma.FieldRef<"UserSkill", 'SkillLevel'>
   readonly confirmed: Prisma.FieldRef<"UserSkill", 'Boolean'>
 }
     

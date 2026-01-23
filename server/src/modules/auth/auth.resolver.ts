@@ -1,6 +1,6 @@
 import { Args, Context, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { AuthService } from './auth.service';
-import { Auth } from './entities/auth.entity';
+
 import { AuthResponse } from '@modules/auth/models';
 import { SignInInput, SignupInput } from './dto';
 import { MeResponse } from './models';
@@ -9,6 +9,7 @@ import { JwtAuthGuard } from '@guards/jwt-auth-guard';
 import { CurrentUser } from '@common/decorators/current-user.decorator';
 import { Response } from 'express';
 import { JwtPayload } from '../../types/jwt.types';
+import { Auth } from '@modules/auth/entities/auth.entity';
 
 @Resolver(() => Auth)
 export class AuthResolver {

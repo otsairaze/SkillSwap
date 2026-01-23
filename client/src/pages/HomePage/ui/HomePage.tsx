@@ -14,6 +14,8 @@ export const HomePage = () => {
 
   const { setUser } = useAuthStore();
 
+  console.log(user, 'user');
+
   useEffect(() => {
     if (!loading) {
       setUser(user || null);

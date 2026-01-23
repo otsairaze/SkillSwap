@@ -1,4 +1,4 @@
-import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
+import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
@@ -7,7 +7,7 @@ import { join } from 'path';
 import { UserModule } from '@modules/user';
 import { AuthModule } from '@modules/auth';
 import { JwtModule, JwtService } from '@nestjs/jwt';
-import { AuthMiddleware } from '@common/middleware/refresh-token-middlware';
+import { SKillModule } from '@modules/skill/skill.module';
 
 @Module({
   imports: [
@@ -21,12 +21,8 @@ import { AuthMiddleware } from '@common/middleware/refresh-token-middlware';
     JwtModule.register({}),
     AuthModule,
     UserModule,
+    SKillModule,
   ],
   providers: [JwtService],
 })
-// export class AppModule {}
-export class AppModule implements NestModule {
-  configure(consumer: MiddlewareConsumer) {
-    consumer.apply(AuthMiddleware).forRoutes('/graphql');
-  }
-}
+export class AppModule {}
