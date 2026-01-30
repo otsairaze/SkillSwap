@@ -6,5 +6,4 @@ export const SkillSchema = z.object({
   //   z.object({
   //     name: z.string('Choose skill category'),
   //   }),
-  ),
 });
