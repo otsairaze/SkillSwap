@@ -18,7 +18,7 @@ model User {
 model Skill {
   id     Int         @id @default(autoincrement())
   name   String      @unique
-  status SkillStatus
+  status SkillStatus @default(PENDING)
 
   users UserSkill[]
 }

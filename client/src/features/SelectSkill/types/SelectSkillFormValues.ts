@@ -1,4 +1,4 @@
-import type { SelectSkill } from '@/features/SelectSkill';
+import type { SkillSchema } from '../schemas/select-skill-schema';
 import type { z } from 'zod';
 
-export type SelectSkillFormValues = z.infer<typeof SelectSkill>;
+export type SelectSkillFormValues = z.infer<typeof SkillSchema>;
