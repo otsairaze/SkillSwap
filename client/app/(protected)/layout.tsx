@@ -2,6 +2,7 @@ import { Inter } from 'next/font/google';
 import '@/app/styles/globals.css';
 import { ProfileNavigation } from '@/widgets/ProfileNavigation';
 import { Container } from '@/shared/ui/container';
+import { ApolloProvider } from '@/app/providers/ApolloProvider';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -18,18 +19,20 @@ const inter = Inter({
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='en' data-mode='light' className={inter.className}>
-      <body>
-        <div className='min-h-screen bg-background'>
-          <Container>
-            <div className='grid grid-cols-[280px_1fr] gap-8 py-6'>
-              <aside className='sticky top-6 self-start'>
-                <ProfileNavigation />
-              </aside>
-              <main className='min-w-0'>{children}</main>
-            </div>
-          </Container>
-        </div>
-      </body>
+      <ApolloProvider>
+        <body>
+          <div className='min-h-screen bg-background'>
+            <Container>
+              <div className='grid grid-cols-[280px_1fr] gap-8 py-6'>
+                <aside className='sticky top-6 self-start'>
+                  <ProfileNavigation />
+                </aside>
+                <main className='min-w-0'>{children}</main>
+              </div>
+            </Container>
+          </div>
+        </body>
+      </ApolloProvider>
     </html>
   );
 }
