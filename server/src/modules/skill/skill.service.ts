@@ -12,9 +12,14 @@ export class SkillService {
   ) {}
 
   async getAllSkills() {
-    await this.prisma.user.findMany();
+    return this.prisma.skill.findMany({
+      where: {
+        status: 'SUCCESS',
+      },
+    });
   }
 
+  //Взять скиллы определенного юзера
   async getSkillByUserId(id: number) {
     if (!id) {
       throw new HttpException('User does not exist', HttpStatus.NOT_FOUND);
@@ -30,6 +35,7 @@ export class SkillService {
     });
   }
 
+  //Найти скилл по поиску
   async getFindSkill(query: string) {
     await this.prisma.skill.findMany({
       where: {
@@ -41,6 +47,7 @@ export class SkillService {
     });
   }
 
+  //Создать скилл
   async createSkill(input: CreateSkillInput) {
     const existingSkill = await this.prisma.skill.findUnique({
       where: { name: input.name },
