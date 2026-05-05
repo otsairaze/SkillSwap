@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 message="$(cat $1)"
 requiredPattern="^(add|cut|fix|refactor|optimise|merge|chore|infra|feat): .*$"
 
